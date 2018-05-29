@@ -80,22 +80,26 @@ In the config example below:
 
 - the armed_home state will leave no time to leave the building or disarm the alarm;
 
-- while other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
+- the armed_away state will leave 20 seconds to leave the building, it will take 30 seconds to activate himself and the alarm will be triggered for 40 seconds
 
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
   - platform: manual
-    name: Home Alarm
-    code: 1234
-    pending_time: 30
-    delay_time: 20
+    name: Allarme
+    pending_time: 0
+    delay_time: 0
     trigger_time: 4
     disarmed:
       trigger_time: 0
     armed_home:
       pending_time: 0
       delay_time: 0
+      trigger_time: 4
+    armed_away:
+      pending_time: 30
+      delay_time: 20
+      trigger_time: 40
 ```
 
 ## {% linkable_title Examples %}
